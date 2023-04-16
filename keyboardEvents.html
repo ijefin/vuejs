@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vue@3/dist/vue.global.js"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <input
+        type="text"
+        v-on:keyup="showPressedKey('Letra apertada: ', $event)"
+      />
+      <input
+        type="text"
+        v-on:keyup.enter="showPressedKey('Letra apertada: ', $event)"
+        placeholder="Aperte enter"
+      />
+    </div>
+
+    <script type="text/javascript">
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            message: "Enter foi apertado!",
+          };
+        },
+        methods: {
+          showPressedKey: function (show, e) {
+            console.log(show, e.key);
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
