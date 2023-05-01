@@ -12,6 +12,7 @@
   <body>
     <div id="app">
       <p>{{ message }}</p>
+      <p>{{ olaMundo() }}</p>
     </div>
 
     <script type="text/javascript">
@@ -22,6 +23,11 @@
           return {
             message: "Olá mundo!",
           };
+        },
+        methods: {
+          olaMundo: function () {
+            return this.message;
+          },
         },
       }).mount("#app");
     </script>
