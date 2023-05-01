@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vue@3/dist/vue.global.js"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-once>{{nome}}</p>
+      <p>{{ changeName() }}</p>
+    </div>
+
+    <script type="text/javascript">
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            nome: "Jefferson Lucas Gomes",
+          };
+        },
+        methods: {
+          changeName: function () {
+            return (this.nome = "Jefferson L. Gomes");
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
