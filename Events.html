@@ -12,7 +12,8 @@
   <body>
     <!-- Diretiva para mostrar html -->
     <div id="app">
-      <p v-html="message"></p>
+      <button v-on:click="countNumbers()">Aumentar!</button>
+      <p>botão clicado {{count}} vezes</p>
     </div>
 
     <script type="text/javascript">
@@ -22,7 +23,13 @@
         data() {
           return {
             message: 'Aprendendo <span style="color: red">Vue3</span>',
+            count: 0,
           };
+        },
+        methods: {
+          countNumbers: function () {
+            this.count++;
+          },
         },
       }).mount("#app");
     </script>

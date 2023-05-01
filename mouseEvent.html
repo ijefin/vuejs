@@ -10,9 +10,10 @@
     ></script>
   </head>
   <body>
-    <!-- Diretiva para mostrar html -->
-    <div id="app">
-      <p v-html="message"></p>
+    <div style="height: 80vh" id="app">
+      <p v-on:mousemove="getMousePosition">
+        Coordenadas! x: {{posX}} y: {{posY}}
+      </p>
     </div>
 
     <script type="text/javascript">
@@ -21,8 +22,15 @@
       createApp({
         data() {
           return {
-            message: 'Aprendendo <span style="color: red">Vue3</span>',
+            posX: 0,
+            posY: 0,
           };
+        },
+        methods: {
+          getMousePosition: function (e) {
+            this.posX = e.clientX;
+            this.posY = e.clientY;
+          },
         },
       }).mount("#app");
     </script>
