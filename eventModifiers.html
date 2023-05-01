@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vue@3/dist/vue.global.js"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-on:click="clicado('p', $event)">
+        Paragrafo teste
+        <!-- <button v-on:click="clicado('button', $event)">Button</button> -->
+        <button v-on:click="submit">Button</button>
+        <button v-on:click.prevent.stop="submit">Button</button>
+      </p>
+    </div>
+
+    <script type="text/javascript">
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            message: "",
+          };
+        },
+        methods: {
+          clicado: function (elemento, event) {
+            event.stopPropagation();
+            console.log(event, elemento);
+          },
+          submit: function (event) {
+            console.log("Deu!");
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
