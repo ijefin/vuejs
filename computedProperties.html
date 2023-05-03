@@ -11,7 +11,11 @@
   </head>
   <body>
     <div id="app">
-      <p>{{curso}} => {{curso.split('').reverse().join('')}}</p>
+      <p>{{curso}} => {{curso.split("").reverse().join("")}}</p>
+
+      <!-- Dados computados são chamados como propriedades do objeto data. -->
+      <p>{{curso}} => {{inverterCurso}}</p>
+      <input @keyup.enter="changeCourseName" />
     </div>
 
     <script type="text/javascript">
@@ -22,6 +26,16 @@
           return {
             curso: "Curso de VueJS",
           };
+        },
+        methods: {
+          changeCourseName: function (e) {
+            this.curso = e.target.value;
+          },
+        },
+        computed: {
+          inverterCurso: function () {
+            return this.curso.split("").reverse().join("");
+          },
         },
       }).mount("#app");
     </script>
