@@ -50,6 +50,10 @@
         :class="changeClass"
         @click="handleBackground = !handleBackground"
       ></div>
+      <div
+        class="caixa"
+        :class="['circulo', 'maior', {azul: handleBackground}]"
+      ></div>
       <input type="text" v-model="myClass" />
     </div>
 
