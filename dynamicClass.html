@@ -45,6 +45,11 @@
         :class="{coral : handleBackground}"
       ></div>
       <div class="caixa" :class="myClass"></div>
+      <div
+        class="caixa"
+        :class="changeClass"
+        @click="handleBackground = !handleBackground"
+      ></div>
       <input type="text" v-model="myClass" />
     </div>
 
@@ -58,6 +63,15 @@
             handleBackground: false,
             myClass: "",
           };
+        },
+        computed: {
+          changeClass: function () {
+            return {
+              maior: this.handleBackground,
+              circulo: this.handleBackground,
+              roxo: this.handleBackground,
+            };
+          },
         },
       }).mount("#app");
     </script>
