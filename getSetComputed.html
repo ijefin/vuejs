@@ -12,6 +12,7 @@
   <body>
     <div id="app">
       <p>Nome completo: {{nomeCompleto}}</p>
+      <input @keyup.enter="changeNome" type="text" />
     </div>
 
     <script type="text/javascript">
@@ -22,12 +23,23 @@
           return {
             nome: "Jeff",
             sobreNome: "Gomes",
-            nomeCompleto: "",
           };
         },
         computed: {
-          nomeCompleto: function () {
-            this.nomeCompleto = `${this.nome} ${this.sobreNome}`;
+          nomeCompleto: {
+            get: function () {
+              return `${this.nome} ${this.sobreNome}`;
+            },
+            set: function (novoNome) {
+              var nomes = novoNome.split(" ");
+              this.nome = nomes[0];
+              this.sobreNome = nomes[nomes.length - 1];
+            },
+          },
+        },
+        methods: {
+          changeNome: function (e) {
+            this.nomeCompleto = e.target.value;
           },
         },
       }).mount("#app");
