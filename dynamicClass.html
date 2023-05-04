@@ -20,6 +20,15 @@
     .coral {
       background-color: coral;
     }
+    .circulo {
+      border-radius: 100%;
+      background-color: #ff4400;
+    }
+    .maior {
+      width: 100px;
+      height: 100px;
+      background-color: #ff0000;
+    }
   </style>
 
   <body>
@@ -29,6 +38,8 @@
         @click="handleBackground = !handleBackground"
         :class="{coral : handleBackground}"
       ></div>
+      <div class="caixa" :class="myClass"></div>
+      <input type="text" v-model="myClass" />
     </div>
 
     <script type="text/javascript">
@@ -39,6 +50,7 @@
           return {
             nome: "Jeff",
             handleBackground: false,
+            myClass: "",
           };
         },
       }).mount("#app");
