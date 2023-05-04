@@ -16,6 +16,9 @@
       <!-- Dados computados são chamados como propriedades do objeto data. -->
       <p>{{curso}} => {{inverterCurso}}</p>
       <input @keyup.enter="changeCourseName" />
+      <p>{{showName}}</p>
+      <br />
+      <button @click="showName = !showName"></button>
     </div>
 
     <script type="text/javascript">
@@ -25,15 +28,21 @@
         data() {
           return {
             curso: "Curso de VueJS",
+            showName: false,
           };
         },
         methods: {
           changeCourseName: function (e) {
             this.curso = e.target.value;
           },
+          inverteCursoMethod: function () {
+            console.log("method");
+            this.curso.split("").reverse().join("");
+          },
         },
         computed: {
           inverterCurso: function () {
+            console.log("computed");
             return this.curso.split("").reverse().join("");
           },
         },

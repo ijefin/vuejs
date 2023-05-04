@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vue@3/dist/vue.global.js"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-text="nomeCompleto"></p>
+      <button @click="altearNome">Alterar</button>
+    </div>
+
+    <script type="text/javascript">
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            nomeCompleto: "Jefferson L Gomes",
+          };
+        },
+        watch: {
+          nomeCompleto: function (novoNome, antigoNome) {
+            var self = this;
+            setTimeout(function () {
+              self.nomeCompleto = "Nome Resetado";
+            }, 3000);
+          },
+        },
+        methods: {
+          altearNome: function () {
+            this.nomeCompleto = "Gomes L Jefferson";
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
