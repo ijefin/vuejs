@@ -10,14 +10,20 @@
     ></script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <p v-if="show">Hello world! Im showing my text!</p>
+      <p v-if="!show">Oh! You hid the text above! Now im being shown!</p>
+      <button @click="show = !show">Mostrar</button>
+    </div>
 
     <script type="text/javascript">
       const { createApp } = Vue;
 
       createApp({
         data() {
-          return {};
+          return {
+            show: true,
+          };
         },
       }).mount("#app");
     </script>
