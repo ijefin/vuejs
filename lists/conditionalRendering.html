@@ -10,21 +10,14 @@
     ></script>
   </head>
   <body>
-    <div id="app">
-      <p v-text="message"></p>
-      <p v-if="handleShow">Sou um texto qualquer</p>
-      <button @click="handleShow = !handleShow">Mostra/Esconde</button>
-    </div>
+    <div id="app"></div>
 
     <script type="text/javascript">
       const { createApp } = Vue;
 
       createApp({
         data() {
-          return {
-            message: "Olá mundo",
-            handleShow: true,
-          };
+          return {};
         },
       }).mount("#app");
     </script>
