@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vue@3/dist/vue.global.js"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="inputed === 'F'">Você gosta de frontend!</p>
+      <p v-else-if="inputed === 'B'">Você gosta de Backend!</p>
+      <p v-else-if="inputed === 'D'">Você gosta de DevOps!</p>
+      <p v-else="inputed">Você gosta de Fullstack!</p>
+
+      <input type="text" v-model="inputed" />
+    </div>
+
+    <script type="text/javascript">
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            inputed: "",
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
