@@ -13,14 +13,9 @@
     <div id="app">
       <h1>Lista de produtos:</h1>
       <ul>
-        <li v-for="tarefa in tarefas" :key="tarefa.id">
-          <template v-if="tarefa.concluida">
-            {{tarefa.nome}} {{tarefa.concluida}}
-          </template>
-        </li>
-      </ul>
-      <ul>
-        <li v-for="item in items" v-if="item.isActive">{{ item.name }}</li>
+        <template v-for="tarefa in tarefas" :key="tarefa.id">
+          <li v-if="tarefa.concluida">{{tarefa.nome}}</li>
+        </template>
       </ul>
     </div>
     <script type="text/javascript">
