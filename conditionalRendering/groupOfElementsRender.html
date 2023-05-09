@@ -11,9 +11,17 @@
   </head>
   <body>
     <div id="app">
-      <p v-if="show">Hello world! Im showing my text!</p>
-      <p v-else>Oh! You hid the text above! Now im being shown!</p>
-      <button @click="show = !show">Mostrar</button>
+      <ul>
+        <li>Backrooms</li>
+        <li>CS:GO</li>
+        <li>Zelda</li>
+        <template v-if="incluir">
+          <li>Trine</li>
+          <li>Minecraft</li>
+        </template>
+      </ul>
+
+      <button @click="incluir = !incluir">Handle Incluir</button>
     </div>
 
     <script type="text/javascript">
@@ -22,7 +30,7 @@
       createApp({
         data() {
           return {
-            show: true,
+            incluir: false,
           };
         },
       }).mount("#app");
