@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vue@3/dist/vue.global.js"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Lista de produtos:</h1>
+      <ul>
+        <li v-for="tarefa in tarefas" :key="tarefa.id">
+          <template v-if="tarefa.concluida">
+            {{tarefa.nome}} {{tarefa.concluida}}
+          </template>
+        </li>
+      </ul>
+      <ul>
+        <li v-for="item in items" v-if="item.isActive">{{ item.name }}</li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            tarefas: [
+              { id: 1, nome: "Limpar a casa", concluida: false },
+              { id: 2, nome: "Estudar programação", concluida: false },
+              { id: 3, nome: "Limpar o terreiro", concluida: true },
+              { id: 4, nome: "Terminar o Trine", concluida: false },
+            ],
+            items: [
+              { name: "Item 1", isActive: true },
+              { name: "Item 2", isActive: false },
+              { name: "Item 3", isActive: true },
+            ],
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

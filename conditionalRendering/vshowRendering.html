@@ -12,14 +12,7 @@
   <body>
     <div id="app">
       <button @click="incluir = !incluir">Toggle</button>
-      <template v-if="incluir">
-        <label>Login</label>
-        <input v-model="valor" placeholder="login" key="campo-login" />
-      </template>
-      <template v-else>
-        <label>Email</label>
-        <input v-model="valor" placeholder="email" key="campo-email" />
-      </template>
+      <p v-show="incluir">Mostrando com o v-show</p>
     </div>
 
     <script type="text/javascript">

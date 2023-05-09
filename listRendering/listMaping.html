@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue</title>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/vue@3/dist/vue.global.js"
+    ></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Lista de produtos:</h1>
+      <ul>
+        <li v-for="(produto, index) in produtos">{{index}}: {{produto}}</li>
+      </ul>
+      <ul>
+        <li v-for="(valor, chave, index) in pessoa">
+          {{index}} - {{chave}}: {{valor}}
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            produtos: [
+              "Monitor",
+              "Teclado",
+              "Gabinete",
+              "Processador",
+              "Mouse",
+            ],
+            pessoa: {
+              id: 1,
+              nome: "Jeff",
+              idade: 23,
+              profissao: "Dev",
+            },
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
