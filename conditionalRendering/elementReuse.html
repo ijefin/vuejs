@@ -14,11 +14,11 @@
       <button @click="incluir = !incluir">Toggle</button>
       <template v-if="incluir">
         <label>Login</label>
-        <input type="text" />
+        <input v-model="valor" placeholder="login" />
       </template>
       <template v-else>
         <label>Email</label>
-        <input type="text" />
+        <input v-model="valor" placeholder="email" />
       </template>
     </div>
 
@@ -28,7 +28,7 @@
       createApp({
         data() {
           return {
-            incluir: false,
+            incluir: true,
           };
         },
       }).mount("#app");
