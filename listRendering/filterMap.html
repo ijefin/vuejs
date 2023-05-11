@@ -17,6 +17,13 @@
           <li v-if="tarefa.concluida">{{tarefa.nome}}</li>
         </template>
       </ul>
+      <h1>Lista de produtos:</h1>
+      <ul v-if="tarefas.length">
+        <template v-for="tarefa in filterByDone" :key="tarefa.id">
+          <li>{{tarefa.nome}}</li>
+        </template>
+      </ul>
+      <p v-else>Não há tarefas listadas!</p>
     </div>
     <script type="text/javascript">
       const { createApp } = Vue;
@@ -37,6 +44,11 @@
               { name: "Item 3", isActive: true },
             ],
           };
+        },
+        computed: {
+          filterByDone: function () {
+            return this.tarefas.filter((tarefa) => tarefa.concluida !== true);
+          },
         },
       }).mount("#app");
     </script>
