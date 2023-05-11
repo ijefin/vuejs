@@ -12,11 +12,13 @@
   <body>
     <div id="app">
       <h1>Lista de produtos:</h1>
+      <!-- this way is not performatic -->
       <ul>
         <template v-for="tarefa in tarefas" :key="tarefa.id">
           <li v-if="tarefa.concluida">{{tarefa.nome}}</li>
         </template>
       </ul>
+      <!-- use this -->
       <h1>Lista de produtos:</h1>
       <ul v-if="tarefas.length">
         <template v-for="tarefa in filterByDone" :key="tarefa.id">
