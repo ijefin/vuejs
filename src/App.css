@@ -1,0 +1,44 @@
+.main-card {
+  background-color: #ffff;
+  width: 75vh;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  min-height: 80vh;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 22vh;
+}
+
+.notifications {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.notification-amount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  background-color: #093077;
+  color: #fff;
+  width: 3vh;
+  height: 22px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.mark-all {
+  color: gray;
+  font-weight: 500;
+}
